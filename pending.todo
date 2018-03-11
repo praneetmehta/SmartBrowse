@@ -1,0 +1,67 @@
+Browser TODOs:
+  This is the list of todos pending for the webbrowser
+
+  Features:
+    These are the pending features that need to be implemented
+
+    ## Right Click Context for webview
+    ☐ Open in a new Tab @critical
+    ☐ Open image in a new tab
+    ☐ Search for word
+    ☐ Download
+
+    ## Network Manager
+    ☐ Analyze all requests
+    ☐ Implement AdBlocker
+    ☐ Implement Downloader
+
+    ## Tabs
+    ✔ Implement Multiple Tabs @done (18-02-20 10:52)
+    ✔ Icon update for tabs @done (18-02-23 21:14)
+    ✔ Progress for loading @done (18-02-24 13:14)
+    ✔ Enable JS support @done (18-02-27 12:11)
+    ✔ Migrate to PyQt5 @done (18-02-27 11:32)
+    ☐ Reopen last closed tab
+
+    ## NavController
+    ✔ Style Buttons @done (18-02-16 10:55)
+    ☐ Bookmark exists check @high
+    ☐ Bookmarks exists icon update
+    ✔ Quick search Bar @done (18-02-28 01:22)
+    ☐ Quick search search engine selection
+
+    ## Settings
+    ☐ Modify webview settings option
+    ☐ select home page option
+    ☐ Go incognito option @high
+    ☐ Theme Selector option
+    ☐ Delete History
+
+    ## Packaging
+    ✔ initial cx_freeze packaging file @done (18-02-26 22:03)
+    ☐ shorcut to destop
+    ☐ shortcut to taskbar
+
+    ## Extensions
+    ☐ Adblocker
+    ☐ Custom theme installation
+    ☐ Incognito theme
+    ☐ news feed
+    ☐ Google Home
+    ☐ Quick Access Home
+
+
+  Fixes:
+    Bugs and Improvements
+
+    ## Bugs
+    ☐ Bookmark URL fix while loading
+    ☐ Broken Fullscreen support
+
+    ## Upgrades
+    ☐ Better History theme
+    ☐ Better Bookmark theme
+
+
+
+

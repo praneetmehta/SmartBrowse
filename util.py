@@ -85,7 +85,7 @@ class HTMLWriter():
 		self.html = '<title>History</title><h2><strong>History</strong><h2>'
 		for key in historyObject:
 			self.html += '<h3><strong>'+key.upper()+'</strong></h3><table><tbody>'
-			for entry in sorted(historyObject[key], key = lambda k : k[1]):
+			for entry in sorted(historyObject[key], key = operator.itemgetter(1), reverse = True):
 				self.html += 	'<tr><td style="padding:3px 25px">{}</td><td style="padding:5px 15px"><a href="{}">{}</a></td></tr>'.format(entry[1], entry[0], entry[0])
 			self.html += '</tbody><table><br><hr>'
 		return self.html
