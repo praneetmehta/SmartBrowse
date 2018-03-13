@@ -7,7 +7,7 @@ Browser TODOs:
     ## Right Click Context for webview
     ☐ Open in a new Tab @critical
     ☐ Open image in a new tab
-    ☐ Search for word
+    ☐ Search word meaning
     ☐ Download
 
     ## Network Manager
@@ -19,16 +19,18 @@ Browser TODOs:
     ✔ Implement Multiple Tabs @done (18-02-20 10:52)
     ✔ Icon update for tabs @done (18-02-23 21:14)
     ✔ Progress for loading @done (18-02-24 13:14)
-    ✔ Enable JS support @done (18-02-27 12:11)
+    ✔ Enable JS support @done (18-02-27 12:11) - (partial)
     ✔ Migrate to PyQt5 @done (18-02-27 11:32)
     ☐ Reopen last closed tab
+    ✔ loading gif animation @done (18-03-12 00:35)
 
     ## NavController
     ✔ Style Buttons @done (18-02-16 10:55)
-    ☐ Bookmark exists check @high
-    ☐ Bookmarks exists icon update
+    ✔ Bookmark exists check @high @done (18-03-11 18:55)
+    ✔ Bookmarks exists icon update @done (18-03-11 18:56)
     ✔ Quick search Bar @done (18-02-28 01:22)
     ☐ Quick search search engine selection
+    ✔ select all text in URL text input on click @done (18-03-11 14:49)
 
     ## Settings
     ☐ Modify webview settings option
@@ -50,6 +52,9 @@ Browser TODOs:
     ☐ Google Home
     ☐ Quick Access Home
 
+    ## Other
+    ✔ New icon pack support @done (18-03-13 19:18)
+    ✔ Remove Bookmark @done (18-03-13 19:18)
 
   Fixes:
     Bugs and Improvements
@@ -57,6 +62,7 @@ Browser TODOs:
     ## Bugs
     ☐ Bookmark URL fix while loading
     ☐ Broken Fullscreen support
+    ☐ History write broken
 
     ## Upgrades
     ☐ Better History theme

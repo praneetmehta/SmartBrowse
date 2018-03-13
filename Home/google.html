@@ -1,11 +1,487 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Google</title>
+	<title>Home</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+
 </head>
 <body>
+		<img id="background_img" src="" alt="">
+
+	<div id="containter">
+  <div id="today" style="position: absolute;bottom: 20px;">
+  	<h1 id="clock" style="margin-top:40px; font-size:2.5em;margin-bottom: 0;font-family:Montserrat;font-weight: 800">Google</h1>
+  	<h1 id="clock-day" style="margin-top:0;margin-bottom: 0; font-family:Montserrat;font-weight: 800" >Google</h1>
+  	<h1 id="clock-date" style="margin-top:0;margin-bottom: 0; font-family:Montserrat;font-weight: 800" >Google</h1>
+  </div>
+
+
+<form method="get" action="https://www.google.com/search" >
+  <div class="mat-div">
+    <label for="q" class="mat-label">What are you looking for ?</label>
+    <input class="mat-input" type="text" name="q" placeholder="" onEnter="send()" autocomplete="off" maxlength="60" onUpdate="recupValeur()" id="valeur">
+    <label for="search" class="fa fa-search"></label><input type="submit" id="search" />
+  </div>
+  
+  </form>
+</div>
+<div class="logo2">
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In  -->
+<!-- <svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="644.7px" height="202.4px" viewBox="0 0 644.7 202.4" style="enable-background:new 0 0 644.7 202.4;"
+	 xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<defs>
+</defs>
+<g>
+	<path class="st0" d="M71.1,78.1h49.1v70.3c-7.6,2.4-15.4,4.3-23.3,5.5c-7.9,1.3-17.1,1.9-27.5,1.9c-21.9,0-38.9-6.5-51.1-19.5
+		C6.1,123.2,0,105,0,81.5c0-15,3-28.2,9-39.5c6-11.3,14.7-19.9,26-25.9c11.3-6,24.6-8.9,39.8-8.9c15.4,0,29.8,2.8,43.1,8.5
+		l-6.5,14.8c-13-5.5-25.6-8.3-37.7-8.3c-17.6,0-31.3,5.2-41.2,15.7S17.8,63,17.8,81.5c0,19.5,4.8,34.3,14.3,44.4
+		c9.5,10.1,23.5,15.1,42,15.1c10,0,19.8-1.2,29.4-3.5V93.1H71.1V78.1z"/>
+	<path class="st0" d="M245.9,99.5c0,17.7-4.4,31.5-13.3,41.4c-8.9,9.9-21.2,14.9-36.9,14.9c-9.7,0-18.3-2.3-25.8-6.8
+		c-7.5-4.5-13.3-11.1-17.4-19.6c-4.1-8.5-6.1-18.5-6.1-29.9c0-17.7,4.4-31.4,13.2-41.3c8.8-9.9,21.1-14.8,36.8-14.8
+		c15.2,0,27.2,5,36.1,15.1C241.5,68.7,245.9,82.3,245.9,99.5z M163.4,99.5c0,13.8,2.8,24.4,8.3,31.6c5.5,7.2,13.7,10.9,24.4,10.9
+		c10.7,0,18.9-3.6,24.5-10.8c5.6-7.2,8.4-17.8,8.4-31.7c0-13.8-2.8-24.2-8.4-31.4c-5.6-7.1-13.8-10.7-24.7-10.7
+		c-10.7,0-18.8,3.5-24.3,10.6C166.1,75.1,163.4,85.6,163.4,99.5z"/>
+	<path class="st0" d="M368.2,99.5c0,17.7-4.4,31.5-13.3,41.4c-8.9,9.9-21.2,14.9-36.9,14.9c-9.7,0-18.3-2.3-25.8-6.8
+		c-7.5-4.5-13.3-11.1-17.4-19.6c-4.1-8.5-6.1-18.5-6.1-29.9c0-17.7,4.4-31.4,13.2-41.3c8.8-9.9,21.1-14.8,36.8-14.8
+		c15.2,0,27.2,5,36.1,15.1C363.7,68.7,368.2,82.3,368.2,99.5z M285.7,99.5c0,13.8,2.8,24.4,8.3,31.6c5.5,7.2,13.7,10.9,24.4,10.9
+		c10.7,0,18.9-3.6,24.5-10.8c5.6-7.2,8.4-17.8,8.4-31.7c0-13.8-2.8-24.2-8.4-31.4c-5.6-7.1-13.8-10.7-24.7-10.7
+		c-10.7,0-18.8,3.5-24.3,10.6C288.4,75.1,285.7,85.6,285.7,99.5z"/>
+	<path class="st0" d="M485.6,45.5v10.4l-20.1,2.4c1.8,2.3,3.5,5.3,4.9,9c1.4,3.7,2.2,7.9,2.2,12.6c0,10.6-3.6,19.1-10.9,25.4
+		c-7.3,6.3-17.2,9.5-29.9,9.5c-3.2,0-6.3-0.3-9.1-0.8c-7,3.7-10.5,8.3-10.5,13.9c0,3,1.2,5.2,3.7,6.6c2.4,1.4,6.6,2.1,12.6,2.1h19.2
+		c11.7,0,20.7,2.5,27,7.4c6.3,4.9,9.4,12.1,9.4,21.5c0,12-4.8,21.1-14.4,27.4c-9.6,6.3-23.7,9.4-42.1,9.4c-14.2,0-25.1-2.6-32.8-7.9
+		c-7.7-5.3-11.5-12.7-11.5-22.3c0-6.6,2.1-12.3,6.3-17.1c4.2-4.8,10.1-8.1,17.8-9.8c-2.8-1.3-5.1-3.2-7-5.8
+		c-1.9-2.6-2.8-5.7-2.8-9.2c0-4,1.1-7.4,3.2-10.4c2.1-3,5.4-5.8,10-8.6c-5.6-2.3-10.2-6.2-13.7-11.8c-3.5-5.5-5.3-11.9-5.3-19
+		c0-11.9,3.6-21,10.7-27.4s17.2-9.6,30.2-9.6c5.7,0,10.8,0.7,15.3,2H485.6z M399.2,172c0,5.9,2.5,10.3,7.4,13.3
+		c4.9,3,12,4.5,21.3,4.5c13.8,0,24-2.1,30.6-6.2c6.6-4.1,9.9-9.7,9.9-16.8c0-5.9-1.8-9.9-5.4-12.2s-10.4-3.4-20.5-3.4h-19.7
+		c-7.4,0-13.2,1.8-17.4,5.3C401.3,160.2,399.2,165.3,399.2,172z M408.1,80.2c0,7.6,2.1,13.3,6.4,17.2c4.3,3.9,10.2,5.8,17.9,5.8
+		c16,0,24-7.8,24-23.3c0-16.3-8.1-24.4-24.3-24.4c-7.7,0-13.6,2.1-17.8,6.2C410.2,65.8,408.1,72,408.1,80.2z"/>
+	<path class="st0" d="M524.3,153.8h-16.4V0h16.4V153.8z"/>
+	<path class="st0" d="M604.8,155.8c-16,0-28.7-4.9-37.9-14.6c-9.3-9.8-13.9-23.3-13.9-40.6c0-17.5,4.3-31.3,12.9-41.6
+		c8.6-10.3,20.1-15.4,34.6-15.4c13.6,0,24.3,4.5,32.2,13.4c7.9,8.9,11.9,20.7,11.9,35.3v10.4H570c0.3,12.7,3.5,22.4,9.6,29
+		c6.1,6.6,14.7,9.9,25.7,9.9c11.7,0,23.2-2.4,34.6-7.3v14.6c-5.8,2.5-11.3,4.3-16.5,5.4C618.4,155.2,612.2,155.8,604.8,155.8z
+		 M600.4,57.2c-8.7,0-15.6,2.8-20.8,8.5c-5.2,5.7-8.2,13.5-9.1,23.5h56.6c0-10.3-2.3-18.3-6.9-23.8C615.5,60,609,57.2,600.4,57.2z"
+		/>
+</g>
+</svg> -->
+</div>
+
+<input id="slide-sidebar" type="checkbox" role="button" />
+<div class="sidebar">
+  
+  <label for="slide-sidebar"><div class="icon"><span id="icon"></span><span id="icon"></span><span id="icon"></span><span id="icon"></span><span id="icon"></span><span id="icon"></span><span id="icon"></span><span id="icon"></span><span id="icon"></span></label>
+</div>
+  <a href="https://docs.google.com/document?usp=chrome_app&authuser=0" ><img src="http://img15.hostingpics.net/pics/947430592.png" alt="" /></a>
+  <a href="https://mail.google.com/mail/ca" ><img src="http://img15.hostingpics.net/pics/803535401.png" alt="" /></a>
+  <a href="https://drive.google.com/?usp=chrome_app" ><img src="http://img15.hostingpics.net/pics/913102282.png" alt="" /></a>
+  <a href="https://www.youtube.com/" ><img src="http://img15.hostingpics.net/pics/668188771.png" alt="" /></a>
+  <a href="https://docs.google.com/spreadsheets?usp=chrome_app&authuser=0" ><img src="http://img15.hostingpics.net/pics/373802112.png" alt="" /></a>
+  <a href="https://docs.google.com/presentation?usp=chrome_app&authuser=0" ><img src="http://img15.hostingpics.net/pics/890130171.png" alt="" /></a>
+</div>
+
+<!-- <div class="bottom-bar">
+  
+<div class="color">
+  <a onclick="color1()" class="color1"></a>
+  <a onclick="color2()" class="color2"></a>
+  <a onclick="color3()" class="color3"></a>
+  <a onclick="color4()" class="color4"></a>
+  </div>
+  <div class="conditions">
+  <a href="https://www.google.fr/intl/fr/policies/privacy/?fg=1" >Privacy Policy</a>
+    <a href="https://www.google.fr/intl/fr/policies/terms/?fg=1" >Terms & Conditions</a>
+    <a href="https://www.google.fr/preferences?hl=fr" >Settings</a>
+    <a href="https://www.google.fr/intl/fr/about.html?fg=1" >About</a>
+  </div>
+</div> -->
+
+<!-- functions colors -->
+<script>
+	$(document).ready(function(){
+		startTime()
+		var wid = $(window).width();
+		var height = $(window).height();
+		$(window).resize(function(){
+			var wid = $(window).width();
+			var height = $(window).height();
+			document.getElementById('background_img').style.width = wid+"px"
+			document.getElementById('background_img').style.height = height+"px"
+		})
+		function startTime() {
+		    var today = new Date();
+		    var h = today.getHours();
+		    var m = today.getMinutes();
+		    var s = today.getSeconds();
+		    var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+		    var day = days[today.getDay()]
+		    m = checkTime(m);
+		    s = checkTime(s);
+		    document.getElementById('clock').innerHTML =
+		    h + "<span style='font-weight:400'>:" + m + "</span>";
+		    document.getElementById('clock-day').innerHTML = day.substring(0,3) + '<span style="font-weight:400">'+day.substring(3)+'</span>'
+		    var dd = today.getDate();
+		    var mm = today.getMonth()+1; //January is 0!
+
+		    // var yyyy = today.getFullYear();
+		    if(dd<10){
+		        dd='0'+dd;
+		    } 
+		    if(mm<10){
+		        mm='0'+mm;
+		    } 
+		    var date = dd+'<span style="font-weight:400"> / '+mm + '</span>';
+		    document.getElementById("clock-date").innerHTML = date;
+		    var t = setTimeout(startTime, 500);
+		}
+		function checkTime(i) {
+		    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+		    return i;
+		}
+		color1(wid, height)
+		function color1(wid, height) {
+		links = ['https://wallpaperhdzone.com/wp-content/uploads/2016/09/bing-wallpaper-HD2.jpg',
+				 'https://wallpaperhdzone.com/wp-content/uploads/2016/09/bing-wallpaper-HD3.jpg',
+				 'https://wallpaperhdzone.com/wp-content/uploads/2016/09/bing-wallpaper-HD4.jpg',
+				 'https://wallpaperhdzone.com/wp-content/uploads/2016/09/bing-wallpaper-HD5.jpg',
+				 'https://wallpaperhdzone.com/wp-content/uploads/2016/09/bing-wallpaper-HD6.jpg',
+				 'https://wallpaperhdzone.com/wp-content/uploads/2016/09/bing-wallpaper-HD7.jpg',
+				 'https://wallpaperhdzone.com/wp-content/uploads/2016/09/bing-wallpaper-HD8.jpeg',
+				 'https://wallpaperhdzone.com/wp-content/uploads/2016/09/bing-wallpaper-HD9.jpg',
+				 'https://wallpaperhdzone.com/wp-content/uploads/2016/09/bing-wallpaper-HD10.jpeg',
+				 "http://wallpaper-gallery.net/images/bing-wallpaper-gallery/bing-wallpaper-gallery-0.jpg",
+				 "http://wallpaper-gallery.net/images/bing-wallpaper-gallery/bing-wallpaper-gallery-1.jpg",
+				 "http://wallpaper-gallery.net/images/bing-wallpaper-gallery/bing-wallpaper-gallery-3.jpg",
+				 "http://wallpaper-gallery.net/images/bing-wallpaper-gallery/bing-wallpaper-gallery-9.jpg",
+				 "http://wallpaper-gallery.net/images/bing-wallpaper-gallery/bing-wallpaper-gallery-11.jpg",
+				 "http://wallpaper-gallery.net/images/bing-wallpaper-gallery/bing-wallpaper-gallery-18.jpg",
+				 "http://wallpaper-gallery.net/images/bing-wallpaper-gallery/bing-wallpaper-gallery-21.jpg",
+				 "http://wallpaper-gallery.net/images/bing-wallpaper-gallery/bing-wallpaper-gallery-25.jpg",
+				 "http://wallpaper-gallery.net/images/bing-wallpaper-gallery/bing-wallpaper-gallery-27.jpg"
+				 ]
+		var link = links[Math.floor(Math.random()*links.length)];
+		document.getElementById('background_img').src = link
+		document.getElementById('background_img').style.width = wid+"px"
+		document.getElementById('background_img').style.height = height+"px"
+
+		document.getElementById('background_img').style.position = "fixed"
+		document.getElementById('background_img').style.opacity = "0.3"
+		document.getElementById('background_img').style.top = "0"
+
+
+	    document.body.style.backgroundColor = "#000";
+    // document.body.style.backgroundSize = "cover";
+    // document.body.style.backgroundRepeat = "no-repeat";
+	}
+function color2() {
+    document.body.style.backgroundColor = "#34a853";
+}
+function color3() {
+    document.body.style.backgroundColor = "#F57F17";
+}
+  function color4() {
+    document.body.style.backgroundColor = "#ea4335";
+}
+	})
 	
+</script>
+
+<style type="text/css" media="screen">
+	
+	body{
+	  background-color:#4589f0;
+	  font-family:"open Sans",sans-serif;
+	  height:100%;
+	  width:100%;
+	  overflow:hidden;
+	  margin:0 0 0 0;
+	}
+	form{
+	  width:600px;
+	  margin-left:-300px;
+	  position:absolute;
+	  top:40%;
+	  left:50%;
+	}
+	h1{
+	  color:#fff;
+	  font-size:32px;
+	  margin-left:20px;
+	  margin-top:15px;
+	}
+	.mat-label {
+	  display: block;
+	  font-size: 16px;
+	  transform: translateY(25px);
+	  color: #e2e2e2;
+	  transition: all 0.5s;
+	}
+
+	.mat-input {
+	  position: relative;
+	  background: transparent;
+	  width: 100%;
+	  border: none;
+	  outline: none;
+	  padding: 8px 0;
+	  font-size: 16px;
+	  color:#fff;
+	  font-family: "Open Sans", sans-serif;
+	}
+
+	.mat-div {
+	  padding: 30px 0 0 0;
+	  position: relative;
+	}
+
+	.mat-div:after, .mat-div:before {
+	  content: "";
+	  position: absolute;
+	  display: block;
+	  width: 100%;
+	  height: 2px;
+	  background-color: #e2e2e2; 
+	  bottom: 0;
+	  left: 0;
+	  transition: all 0.5s;
+	}
+
+	.mat-div::after {
+	  background-color: #cccccc;
+	  transform: scaleX(0);
+	}
+
+	.is-active::after {
+	  transform: scaleX(1);
+	}
+
+	.is-active .mat-label {
+	  color: #cccccc;
+	}
+
+	.is-completed .mat-label {
+	  font-size: 12px;
+	  transform: translateY(0);
+	}
+
+	svg{
+	  width:100%;
+	  height:100%;
+	}
+	.logo2{
+	  position:fixed;
+	  top:316px;
+	  right:-320px;
+	  width:760px;
+	  -ms-transform: rotate(-90deg);
+	    -webkit-transform: rotate(-90deg);
+	    transform: rotate(-90deg);
+	  opacity:0.2;
+	}
+	.icon{
+	  text-align:center;
+	  line-height:6px;
+	  display:inline-block;
+	  width:28px;
+	  height:28px;
+	  margin-left:26px;
+	  margin-top:55px;
+	  cursor:pointer;
+	}
+	#icon{
+	  display:inline-block;
+	  width:4px;
+	  height:4px;
+	  margin-right:4px;
+	  background-color:#fff;
+	}
+
+	.icon:hover{
+	  opacity:0.5;
+	}
+	.sidebar{
+	  position:absolute;
+	  right:0;
+	  bottom:0px;
+	  width:40px;
+	  height:100vh;
+	  background-color:rgba(255, 255, 255,0.0);
+	  /*-moz-box-shadow: -4px -4px 10px 0px rgba(26, 52, 91,0.6);*/
+	/*-webkit-box-shadow: -4px -4px 10px 0px rgba(26, 52, 91,0.6);
+	-o-box-shadow: -4px -4px 10px 0px rgba(26, 52, 91,0.6);
+	box-shadow: -4px -4px 10px 0px rgba(26, 52, 91,0.6);*/
+	  -webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	}
+
+	input:checked ~ .sidebar {
+	width:80px;
+	  background-color:rgba(255, 255, 255,0.1);
+	  -webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	}
+
+	#slide-sidebar{ display:none;}
+
+	.bottom-bar{
+	  width:100%;
+	  height:40px;
+	  position:absolute;
+	  bottom:0;
+	  background-color:rgba(255, 255, 255,0.1);
+	}
+	input[type=submit]{
+	  display:none;
+	}
+
+	.fa{
+	  color:#cccccc;
+	  display:none;
+	}
+	input:focus ~ .fa{
+	  position:absolute;
+	  display:inline-block;
+	  top:50px;
+	  right:6px;
+	  cursor:pointer;
+	    -webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	}
+
+	.fa:hover{
+	  color:#ffffff;
+	    -webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	}
+
+	.sidebar img{
+	  width:60px;
+	  margin-left: 50px;
+	  margin-top:20px;
+	    -webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	}
+	.sidebar img:hover {
+	opacity:0.6;
+	      -webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	}
+
+	input[type=checkbox]:checked ~ * img{
+	  margin-left: 10px;
+	    -webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	}
+	.color{
+	  text-align:center;
+	  width:100px;
+	  margin:12px 50%;
+	  margin-right:0;
+	  float:left;
+	}
+	.color a{
+	  display: inline-block;
+	  width:15px;
+	  height:15px;
+	  border-radius:50%;
+	  margin-left:2px;
+	  margin-right:2px;
+	  border:1px solid rgba(255,255,255,0.2);
+	}
+	.color1{
+	  background-color:#4285f4;
+	}
+	.color2{
+	  background-color:#34a853;
+	}
+	.color3{
+	  background-color:#F57F17;
+	}
+	.color4{
+	  background-color:#ea4335;
+	}
+
+	.conditions{
+	  display:inline-block;
+	  height:40px;
+	  width:400px;
+	  line-height:40px;
+	  font-size:13px;
+	  position:absolute;
+	  right:0;
+	}
+
+	.conditions a{
+	    text-decoration:none;
+	  margin-left:20px;
+	    color:rgba(255,255,255,0.8);
+	        -webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	}
+
+	.conditions a:hover{
+	    color:rgba(255,255,255,0.5);
+	      -webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	}	
+</style>
+
+<script async defer>
+	function send() {
+document.form.submit()
+}
+
+$(".mat-input").focus(function(){
+  $(this).parent().addClass("is-active is-completed");
+});
+
+$(".mat-input").focusout(function(){
+  if($(this).val() === "")
+    $(this).parent().removeClass("is-completed");
+  $(this).parent().removeClass("is-active");
+})
+
+
+/************/
+$('#valeur').change(function(){
+      if (this.value=='Devlose') alert('Tu me cherche ?');
+});
+</script>
 </body>
 </html>
+

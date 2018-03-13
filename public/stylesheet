@@ -1,9 +1,14 @@
+QTabBar{
+	width: 50px;
+}
 QTabBar::tab{
 	background: #DFE2DD;
 	padding:5px;
 	width: 130px;
-	height: 20px;
+	height: 26px;
 	border-bottom:none;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
 	margin-right: 1px;
 	border: 1px solid #aaa;
 	border-bottom:0px solid #000;
@@ -43,10 +48,12 @@ QComboBox::drop-down
     border: 0px; /* This seems to replace the whole arrow of the combo box */
     margin-left: -10px;
 }
-QComboBox QAbstractItemView::item
+QComboBox QAbstractItemView
 {
   padding-top: 10px;
   padding-bottom: 10px;
+  height: 30px;
+  border-radius: 10px;
 }
 /* Define a new custom arrow icon for the combo box */
 QComboBox::down-arrow {

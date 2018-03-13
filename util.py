@@ -17,7 +17,10 @@ class URLValidator:
 											r'(?:/?|[/?]\S+)$', re.IGNORECASE
 											)
 	def validate(self, URL):
-		return self.validator.search(URL)
+		try:
+			return self.validator.search(URL)
+		except:
+			return False
 
 class Dump:
 	def __init__(self, filepath):
@@ -34,17 +37,17 @@ class Dump:
 		ext = tldextract.extract(self.url)
 		return ext
 
-	def add(self, URL):
+	def add(self, URL, title):
 		self.url = URL
 		if(self.validator.validate(URL)):
 			ext = self.getDomain()
 			thisTime = datetime.datetime.now()
 			if ext.domain in self.Store.keys():
-				self.Store[ext.domain].append((URL,thisTime))
+				self.Store[ext.domain].append((URL,thisTime, title))
 			else:
 				self.Store[ext.domain] = []
-				self.Store[ext.domain].append((URL,thisTime))
-			self.notify(URL, ext.domain, thisTime)
+				self.Store[ext.domain].append((URL,thisTime, title))
+			# self.notify(URL, ext.domain, thisTime)
 		else:
 			print('Invalid URL')
 
@@ -58,12 +61,13 @@ class Dump:
 
 class BookmarkDump(Dump):
 	def __init__(self):
-		super().__init__('bookmarks.pkl')
+		super().__init__('userdata/bookmarks.pkl')
 
 	def add(self, URL, title):
 		if(self.validator.validate(URL)):
 			if URL in self.Store.keys():
-				return True
+				self.Store.pop(URL)
+				return False
 			else:
 				self.Store[URL] = title
 			self.notify(URL, None, title)
@@ -72,9 +76,16 @@ class BookmarkDump(Dump):
 			print('Invalid URL')
 			return False
 
+	def find(self, URL):
+		if(self.validator.validate(URL)):
+			if URL in self.Store.keys():
+				print('FOUND THIS IN BOOKMARKS', URL, self.Store[URL])
+				return True
+		return False
+
 class HistoryDump(Dump):
 	def __init__(self):
-		super().__init__('history.pkl')
+		super().__init__('userdata/history.pkl')
 
 
 class HTMLWriter():
@@ -86,7 +97,7 @@ class HTMLWriter():
 		for key in historyObject:
 			self.html += '<h3><strong>'+key.upper()+'</strong></h3><table><tbody>'
 			for entry in sorted(historyObject[key], key = operator.itemgetter(1), reverse = True):
-				self.html += 	'<tr><td style="padding:3px 25px">{}</td><td style="padding:5px 15px"><a href="{}">{}</a></td></tr>'.format(entry[1], entry[0], entry[0])
+				self.html += 	'<tr><td style="padding:3px 25px">{}</td><td style="padding:5px 15px"><a href="{}">{}</a></td></tr>'.format(entry[1], entry[0], entry[2])
 			self.html += '</tbody><table><br><hr>'
 		return self.html
 

@@ -15,12 +15,13 @@ class NavControls(QHBoxLayout):
 		self.tabWidget = tabWidget
 	
 	def _createWidgets(self):
-		self.btn_back = Button(QIcon('img/arrowback.png'), '', self._w)
-		self.btn_forward = Button(QIcon('img/arrowforward.png'), '', self._w)
+		self.btn_back = Button(QIcon('img/back.png'), '', self._w)
+		self.btn_forward = Button(QIcon('img/next.png'), '', self._w)
 		self.btn_reload = Button(QIcon('img/reload.png'), '', self._w)
-		self.btn_newtab = Button(QIcon('img/newtab.png'), '', self._w)
-		self.btn_pref = Button(QIcon('img/pref.png'), '', self._w)
+		self.btn_newtab = Button(QIcon('img/new.png'), '', self._w)
+		self.btn_pref = Button(QIcon('img/setting.png'), '', self._w)
 		self.btn_bookmark = Button(QIcon('img/addtobookmark.png'), '', self._w)
+		self.btn_home = Button(QIcon('img/home.png'), '', self._w)
 		self.URLinput = TextInput('Arial',12)
 		self.searchEngine = TextInput('Arial',10)
 		# self.injectURL()
@@ -37,6 +38,7 @@ class NavControls(QHBoxLayout):
 		self.addWidget(self.btn_back, 1)
 		self.addWidget(self.btn_forward, 1)
 		self.addWidget(self.btn_reload, 1)
+		self.addWidget(self.btn_home, 1)
 		self.addWidget(self.URLinput, 120)
 		self.addWidget(self.searchEngine, 20)
 		self.addWidget(self.btn_newtab, 1)
@@ -48,6 +50,7 @@ class NavControls(QHBoxLayout):
 		self.btn_forward.clicked.connect(self.forwardController)
 		self.btn_back.clicked.connect(self.backwardController)
 		self.btn_reload.clicked.connect(self.reloadController)
+		self.btn_home.clicked.connect(self.homeController)
 		self.btn_bookmark.clicked.connect(self.bookmarkController)
 		self.URLinput.lineEdit().returnPressed.connect(self.visitPageController)
 		self.searchEngine.lineEdit().returnPressed.connect(self.searchEngineSearchController)
@@ -56,7 +59,14 @@ class NavControls(QHBoxLayout):
 		title = self.tabWidget.current.pageTitle
 		status = self._bookmarks.add(self.URLinput.text(), title)
 		if status:
+			logger.log('changing bookmark status', 2)
 			self.btn_bookmark.setIcon(QIcon('img/bookmarked.png'))
+		else:
+			logger.log('removing bookmark', 2)
+			self.btn_bookmark.setIcon(QIcon('img/addtobookmark.png'))
+
+	def homeController(self):
+		self.tabWidget.current.showHome()
 
 	def newTabController(self):
 		self.tabWidget.addNewTab()
@@ -76,9 +86,10 @@ class NavControls(QHBoxLayout):
 	def visitPageController(self):
 		tab = self.tabWidget.current
 		tab.URL = self.URLinput.text()
+		logger.log(tab.URL, 2)
 		tab.loadURL()
 
-	def searchEngineSearchController(self):
+	def searchEngineSearchController(self, se = '-g'):
 		self.newTabController()
 		tab = self.tabWidget.current
 		tab.URL = 'https://google.com/search?q='+self.searchEngine.text().replace(' ', '+')
