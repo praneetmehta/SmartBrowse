@@ -92,7 +92,10 @@ class Filter(object):
 				if tok in self.index:
 					for rule in self.index[tok]:
 						if rule.match(url, elementtype=elementtype):
+							print(str(rule))
 							return True
+		return False
+
 
 
 if __name__ == '__main__':

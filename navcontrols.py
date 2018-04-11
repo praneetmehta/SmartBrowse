@@ -8,7 +8,7 @@ class NavControls(QHBoxLayout):
 		self._createWidgets()
 		self.currTab = None
 		self.tabWidget = None
-		self.layout().setContentsMargins(5,0,5,0)
+		self.layout().setContentsMargins(5,5,5,0)
 		self.navController()
 
 	def operateOn(self, tabWidget):

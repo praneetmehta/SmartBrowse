@@ -5,14 +5,15 @@ Browser TODOs:
     These are the pending features that need to be implemented
 
     ## Right Click Context for webview
-    ☐ Open in a new Tab @critical
+    ✔ Open in a new Tab @critical @done (18-03-17 23:52) Working for scroll click
+    ☐ Add context menu option to open in new tab
     ☐ Open image in a new tab
     ☐ Search word meaning
     ☐ Download
 
     ## Network Manager
-    ☐ Analyze all requests
-    ☐ Implement AdBlocker
+    ✔ Analyze all requests @done (18-03-19 13:16)
+    ✔ Implement AdBlocker @done (18-03-19 13:16)
     ☐ Implement Downloader
 
     ## Tabs
@@ -21,7 +22,7 @@ Browser TODOs:
     ✔ Progress for loading @done (18-02-24 13:14)
     ✔ Enable JS support @done (18-02-27 12:11) - (partial)
     ✔ Migrate to PyQt5 @done (18-02-27 11:32)
-    ☐ Reopen last closed tab
+    ✔ Reopen last closed tab @done (18-03-17 23:52)
     ✔ loading gif animation @done (18-03-12 00:35)
 
     ## NavController
@@ -49,12 +50,13 @@ Browser TODOs:
     ☐ Custom theme installation
     ☐ Incognito theme
     ☐ news feed
-    ☐ Google Home
+    ✔ Google Home @done (18-03-17 23:52)
     ☐ Quick Access Home
 
     ## Other
     ✔ New icon pack support @done (18-03-13 19:18)
     ✔ Remove Bookmark @done (18-03-13 19:18)
+    ☐ Install Re2 Library
 
   Fixes:
     Bugs and Improvements
@@ -62,7 +64,8 @@ Browser TODOs:
     ## Bugs
     ☐ Bookmark URL fix while loading
     ☐ Broken Fullscreen support
-    ☐ History write broken
+    ✔ History write broken @done (18-03-17 23:52)
+    ☐ AdBlocker also blocking non ad requests
 
     ## Upgrades
     ☐ Better History theme

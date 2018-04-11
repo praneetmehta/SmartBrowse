@@ -82,6 +82,8 @@ class MainWindow(QWidget):
         showHistory = Shortcut('History', 'Ctrl+H', self.tabs.showHistory, self)
         showBookmarks = Shortcut('Bookmarks', 'Ctrl+B', self.tabs.showBookmarks, self)
         reopenTab = Shortcut('Reopen CLosed Tab', 'Ctrl+Shift+T', self.tabs.reopenTab, self)
+        maximize = Shortcut('FullScreen', 'F11', self.handleMaximize, self)
+
 
 def dumphistory(hist, book):
     hist.dump()

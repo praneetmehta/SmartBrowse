@@ -110,38 +110,39 @@ class TabWidget(QTabWidget):
 		logger.log('CLOSING TAB', 1)
 		if TabWidget.tabCount <= 1 :
 			QCoreApplication.quit()
+			return
 		if index == None:
 			index = self.currentTabIndex
 		TabWidget.tabCount-=1
 		tab = TabWidget.tabs.pop(index)
-		self.dumpTab(tab)
+		self.dumpTab(tab.history(), tab.URL)
+		tab.deleteLater()
 		self.removeTab(index)
 	
-	def dumpTab(self, tab):
-		TabWidget.tabdump.append(tab)
+	def dumpTab(self, history, url):
+		TabWidget.tabdump.append((history, url))
 		if len(TabWidget.tabdump) > 10:
 			tabToDie = tabdump.pop(0)
-			tabToDie.deleteLater()
 
 	def reopenTab(self):
 		if len(TabWidget.tabdump) > 0:
 			tabToRevive = TabWidget.tabdump.pop(-1)
-			self.addTab(tabToRevive, tabToRevive.pageTitle)
-			TabWidget.tabCount+=1
-			TabWidget.tabs.append(tabToRevive)
-			if tabToRevive.URL is not None or tabToRevive.URL != 'about:blank':
-				print(tabToRevive.URL)
-				tabToRevive.loadURL()
-			else:
-				tabToRevive.showHome()
-			self.currentTab = tabToRevive
-			self.currentTabIndex = len(TabWidget.tabs)-1
-			self.setCurrentIndex(self.currentTabIndex)
-			self.setTabShape(1)
+			self.addNewTab(url = tabToRevive[1], history = tabToRevive[0])
+			# TabWidget.tabCount+=1
+			# TabWidget.tabs.append(tabToRevive)
+			# if tabToRevive.URL is not None or tabToRevive.URL != 'about:blank':
+			# 	print(tabToRevive.URL)
+			# 	tabToRevive.loadURL()
+			# else:
+			# 	tabToRevive.showHome()
+			# self.currentTab = tabToRevive
+			# self.currentTabIndex = len(TabWidget.tabs)-1
+			# self.setCurrentIndex(self.currentTabIndex)
+			# self.setTabShape(1)
 		else:
 			logger.log("NO TAB TO REOPEN", 2)
 
-	def addNewTab(self, html=None, url=None):
+	def addNewTab(self, html=None, url=None, history = None):
 		newTab = Tab(self)
 		if html is not None:
 			newTab.html = html
@@ -152,6 +153,8 @@ class TabWidget(QTabWidget):
 		self.addTab(newTab, newTab.pageTitle)
 		TabWidget.tabCount+=1
 		TabWidget.tabs.append(newTab)
+		if history is not None:
+			self.history = history
 		if newTab.URL is not None:
 			newTab.loadURL()
 		else:
@@ -159,6 +162,7 @@ class TabWidget(QTabWidget):
 		self.currentTab = newTab
 		self.currentTabIndex = len(TabWidget.tabs)-1
 		self.setCurrentIndex(self.currentTabIndex)
+		logger.log(self.current, 2)
 		self.setTabShape(1)
 
 	def showHistory(self):

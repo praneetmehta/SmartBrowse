@@ -7,7 +7,7 @@ import pyautogui
 from threading import Thread
 from util import *
 from logUtil import Log
-from controlelements import GifThread
+from controlelements import GifThread, NewTabThread
 validator = URLValidator()
 logger = Log()
 HomePageURL = None

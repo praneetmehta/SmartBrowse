@@ -23,8 +23,10 @@ class URLValidator:
 			return False
 
 class Dump:
-	def __init__(self, filepath):
+	def __init__(self, filepath, directory):
 		self.filepath = filepath
+		if not os.path.exists(directory):
+			os.makedirs(directory)
 		if os.path.isfile(self.filepath):
 			with open(self.filepath, 'rb') as file:
 				self.Store = pickle.load(file)
@@ -61,7 +63,7 @@ class Dump:
 
 class BookmarkDump(Dump):
 	def __init__(self):
-		super().__init__('userdata/bookmarks.pkl')
+		super().__init__('userdata/bookmarks.pkl', 'userdata')
 
 	def add(self, URL, title):
 		if(self.validator.validate(URL)):
@@ -85,7 +87,7 @@ class BookmarkDump(Dump):
 
 class HistoryDump(Dump):
 	def __init__(self):
-		super().__init__('userdata/history.pkl')
+		super().__init__('userdata/history.pkl', 'userdata')
 
 
 class HTMLWriter():

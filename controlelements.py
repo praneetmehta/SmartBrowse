@@ -40,3 +40,16 @@ class GifThread(QThread):
 		self.loadingGif.setPaused(False)
 		self.tab.parent.updateIcon(self.tab)
 			
+
+class NewTabThread(QThread):
+	def __init__(self, func):
+		QThread.__init__(self)
+		self.func = func
+
+	def __del__(self):
+		self.wait()
+
+	def run(self):
+		self.func.addNewTab()
+		
+			
